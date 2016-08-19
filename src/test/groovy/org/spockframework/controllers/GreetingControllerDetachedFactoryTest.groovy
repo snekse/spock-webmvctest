@@ -18,7 +18,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * This test tries to utilize a static config that uses {@link DetachedMockFactory}
  * to create a Spring bean created from a Spock Mock
  *
- * The problem with this test is Spring is unable to inject the {@link MockMvc} once we introduce the extra config
+ * WARNING: If you override the loader, you might get an error like the one below.
  *
  * Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [org.springframework.test.web.servlet.MockMvc] found for dependency [org.springframework.test.web.servlet.MockMvc]: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true), @org.spockframework.runtime.model.FieldMetadata(line=26, name=mockMvc, ordinal=0)}
     at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1406)
@@ -29,7 +29,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  *
  * @see GreetingNoDependencyControllerTest
  */
-@ContextConfiguration(loader=AnnotationConfigContextLoader)
+@ContextConfiguration //NOTE: No loader defined
 @WebMvcTest(GreetingController)
 class GreetingControllerDetachedFactoryTest extends Specification {
 

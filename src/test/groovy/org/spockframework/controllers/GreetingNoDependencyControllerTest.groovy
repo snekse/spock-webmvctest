@@ -12,6 +12,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 /**
  * This is an example of how the test works using {@link MockMvc} with no problems
+ * This used a controller that has no dependencies, so nothing needs to be mocked
  */
 @ContextConfiguration
 @WebMvcTest(GreetingNoDependencyController)

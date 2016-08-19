@@ -24,6 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
     at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:566)
     ... 39 more
  */
+@Ignore //Ignored because this is a sample of how things DO NOT work
 @ContextConfiguration
 @WebMvcTest(GreetingController)
 class GreetingControllerNoServiceTest extends Specification {

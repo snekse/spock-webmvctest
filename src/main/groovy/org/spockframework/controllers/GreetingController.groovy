@@ -14,7 +14,7 @@ class GreetingController {
     @Autowired GreetingService greetingService
 
     @SuppressWarnings("GrMethodMayBeStatic")
-    @GetMapping(path = "/")
+    @GetMapping(path = "/{lang}")
     String greetWorld(@PathVariable String lang) {
         return greetingService.greet(lang)
     }
