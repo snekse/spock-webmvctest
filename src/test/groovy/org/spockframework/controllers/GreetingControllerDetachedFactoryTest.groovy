@@ -4,6 +4,7 @@ import org.spockframework.services.GreetingService
 import org.spockframework.services.GreetingUtil
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
+import org.springframework.boot.test.context.TestConfiguration
 import org.springframework.context.annotation.Bean
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.support.AnnotationConfigContextLoader
@@ -58,8 +59,11 @@ class GreetingControllerDetachedFactoryTest extends Specification {
         'es'    || "Hola Mundo"
     }
 
+    @TestConfiguration
     static class Config {
         private DetachedMockFactory factory = new DetachedMockFactory()
+
+        //NOTE: In order to mock just a single level deep, the class being mocked must use constructor injection
 
         @Bean
         GreetingService greetingService() {
